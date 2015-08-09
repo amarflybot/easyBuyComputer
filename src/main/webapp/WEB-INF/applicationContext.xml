@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+       <bean id="userDao" class="com.compAssem.dao.users.UserDaoImpl">
+              <property name="sessionFactory" ref="sessionFactory" />
+       </bean>
+
+       <bean id="myUserDetailsService" class="com.compAssem.service.user.MyUserDetailsService">
+              <property name="userDao" ref="userDao" />
+       </bean>
+
+       <bean id="motherboardDao" class="com.compAssem.dao.motherboard.MotherboardDaoImpl">
+              <property name="sessionFactory" ref="sessionFactory" />
+       </bean>
+
+       <bean id="motherBoardService" class="com.compAssem.service.motherboard.MotherBoardServiceImpl">
+              <property name="motherboardDao" ref="motherboardDao" />
+       </bean>
+
+</beans>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.compAssem.model">
+    <class name="components.Motherboard" table="MOTHERBOARD">
+        <id name="OID" column="MOTHERBOARD_OID">
+            <generator class="native"/>
+        </id>
+        <property name="name" column="NAME" />
+        <one-to-one name="processorSocket" class="components.ProcessorSocket"
+                    cascade="save-update" />
+        <!--<one-to-one name="cabinetType" class="net.meraComputer.spring.model.CabinetType"
+                    cascade="save-update" />
+        <one-to-one name="ramSlot" class="net.meraComputer.spring.model.RamSlot"
+                    cascade="save-update" />
+        <one-to-one name="powerSupplyWatt" class="net.meraComputer.spring.model.PowerSupplyWatt"
+                    cascade="save-update" />
+        <one-to-one name="graphicCardSlot" class="net.meraComputer.spring.model.GraphicCardSlot"
+                    cascade="save-update" />-->
+    </class>
+
+    <class name="components.Processor" table="PROCESSOR">
+        <id name="OID" column="PROCESSOR_OID">
+            <generator class="native"/>
+        </id>
+        <property name="name" column="NAME" />
+        <one-to-one name="processorSocket" class="components.ProcessorSocket"
+                    cascade="save-update" />
+    </class>
+    <class name="components.ProcessorSocket" table="PROCESSOR_SOCKET">
+        <id name="OID" column="PROCESSOR_SOCKET_OID">
+            <generator class="native"/>
+        </id>
+
+    </class>
+
+</hibernate-mapping>
